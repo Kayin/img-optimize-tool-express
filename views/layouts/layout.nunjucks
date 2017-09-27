@@ -1,0 +1,35 @@
+<!-- layout.nunjucks -->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  {% if ENV_DEVELOPMENT %}
+    <script src="http://localhost:35729/livereload.js"></script>
+  {% endif %}
+
+</head>
+<body class="body u-bgColor-grey1">
+
+  <!-- nunjucks template block -->
+  {% block content %} {% endblock %}
+
+  <!-- get jquery for stuff -->
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+  <!-- custom jquery things -->
+  <!-- <script src="/js/jquery.plugins.js"></script> -->
+
+  <!-- dropzone.js -->
+  <script src="/js/dropzone.js"></script>
+
+  <!-- scripts -->
+  <script src="/js/scripts.js"></script>
+
+</body>
+</html>

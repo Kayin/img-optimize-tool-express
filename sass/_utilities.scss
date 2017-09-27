@@ -1,0 +1,407 @@
+/**
+* ==========================================================================
+* Global utility classes
+* These are common styles to be used on any element
+* use the prefix .u-
+* ==========================================================================
+*/
+
+/**
+* --------------------------------------------------------------------------
+* Common layout utilities
+* --------------------------------------------------------------------------
+*/
+
+.u-clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.u-show {
+  display: block !important;
+}
+
+.u-hidden {
+  display: none !important;
+}
+
+.u-invisible {
+  visibility: hidden;
+}
+
+.u-navlist {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  li {
+    display: inline-block;
+    margin-right: .8em;
+  }
+}
+
+.u-cursor-pointer {
+  cursor: pointer;
+}
+
+.u-list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-left {
+  text-align: left;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+.u-text-justify {
+  text-align: justify;
+}
+
+.u-text-vcenter {
+  vertical-align: middle;
+}
+
+.u-text-nowrap {
+  white-space: nowrap;
+}
+
+.u-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.u-text-lowercase {
+  text-transform: lowercase;
+}
+
+.u-text-uppercase {
+  text-transform: uppercase;
+}
+
+.u-text-capitalize {
+  text-transform: capitalize;
+}
+
+.u-text-hide {
+  font: "0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.u-pull-left {
+  float: left;
+}
+
+.u-pull-right {
+  float: right;
+}
+
+.u-center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* flexbox */
+.u-flex-row, .u-sameheight {
+  display: flex;
+  flex-direction: row;
+}
+.u-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.u-flex-fill {
+  flex: 1 1 auto;
+}
+.u-flex-shrink {
+  flex: 0 1 auto;
+}
+
+/* indended for use on the grid rows to apply space */
+.u-row-space {
+  padding-bottom: 2rem;
+}
+
+/* image container ratio scaling */
+.u-image.mod-aspect { // 16:9 container for images - because object-fit/object-position doesn't work in IE
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 0;
+  padding: 100% 0 0 0; // default aspect ratio of 1:1
+  overflow: hidden;
+}
+.u-image.mod-aspect.mod-rectangle {
+  padding: 56.25% 0 0 0; // aspect ratio of: 16:9 = 56.25% | 2:1 = 50%
+}
+.u-image.mod-aspect > img { // image fits inside container maintaining aspect ratio
+  position: absolute;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.u-image.mod-aspect.mod-cover > img { // image fills container maintaining aspect ratio
+  max-height: none;
+  left: -200%;
+  right: -200%;
+  top: -200%;
+  bottom: -200%;
+}
+
+/**
+* --------------------------------------------------------------------------
+* Common visual style utilities
+* --------------------------------------------------------------------------
+*/
+
+/* common boxshadows */
+.u-boxShadow-1 {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 1px 0 rgba(0,0,0,.12), 0 2px 1px -1px rgba(0,0,0,.1);
+}
+.u-boxShadow-2 {
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.09), 0 3px 4px 0 rgba(0,0,0,.11), 0 3px 3px -2px rgba(0,0,0,.09);
+}
+.u-boxShadow-3 {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.08), 0 6px 10px 0 rgba(0,0,0,.10), 0 1px 18px 0 rgba(0,0,0,.08);
+}
+.u-boxShadow-4 {
+  box-shadow: 0 7px 8px -4px rgba(0,0,0,.06), 0 12px 17px 2px rgba(0,0,0,.08), 0 5px 22px 4px rgba(0,0,0,.06);
+}
+
+/* common background colors, and includes declaration for dark or light text color for readability */
+.u-bgColor-teal1 {
+  color: #333;
+  background-color: #edf7f8;
+}
+.u-bgColor-teal2 {
+  color: #333;
+  background-color: #d9f1f4;
+}
+.u-bgColor-teal3 {
+  color: #333;
+  background-color: #9ed6df;
+}
+.u-bgColor-teal4 {
+  color: #333;
+  background-color: #0bc;
+}
+.u-bgColor-teal5 {
+  color: #fff;
+  background-color: #189;
+}
+.u-bgColor-teal6 {
+  color: #fff;
+  background-color: #156;
+}
+
+.u-bgColor-red1 {
+  color: #333;
+  background-color: #fbeeee;
+}
+.u-bgColor-red2 {
+  color: #333;
+  background-color: #f4dfdf;
+}
+.u-bgColor-red3 {
+  color: #333;
+  background-color: #efb9b9;
+}
+.u-bgColor-red4 {
+  color: #fff;
+  background-color: #e00;
+}
+.u-bgColor-red5 {
+  color: #fff;
+  background-color: #c00;
+}
+.u-bgColor-red6 {
+  color: #fff;
+  background-color: #900;
+}
+
+.u-bgColor-white {
+  color: #333;
+  background-color: #fff;
+}
+
+.u-bgColor-grey1 {
+  color: #333;
+  background-color: #f9f9f9;
+}
+.u-bgColor-grey2 {
+  color: #333;
+  background-color: #f0f0f0;
+}
+.u-bgColor-grey3 {
+  color: #333;
+  background-color: #ccc;
+}
+.u-bgColor-grey4 {
+  color: #333;
+  background-color: #b9b9b9;
+}
+.u-bgColor-grey5 {
+  color: #333;
+  background-color: #aaa;
+}
+.u-bgColor-grey6 {
+  color: #333;
+  background-color: #999;
+}
+.u-bgColor-grey7 {
+  color: #fff;
+  background-color: #555;
+}
+.u-bgColor-grey8 {
+  color: #fff;
+  background-color: #333;
+}
+
+.u-bgColor-black {
+  color: #fff;
+  background-color: #000;
+}
+
+.u-bgColor-yellow1 {
+  color: #333;
+  background-color: #ffffe5;
+}
+.u-bgColor-yellow2 {
+  color: #333;
+  background-color: #ffffb3;
+}
+
+.u-bgColor-hoverhighlight {
+  color: #333;
+  background: #edf7f9;
+}
+
+.u-bgColor-lightGradient {
+  color: #333;
+  background: -moz-linear-gradient(top, #fff 0%, #f0f0f0 100%);
+}
+
+/* common text (and fill for svg) colors */
+.u-color-teal1 {
+  color: #edf7f8;
+  fill: #d9f1f4;
+}
+.u-color-teal2 {
+  color: #d9f1f4;
+  fill: #d9f1f4;
+}
+.u-color-teal3 {
+  color: #9ed6df;
+  fill: #9ed6df;
+}
+.u-color-teal4 {
+  color: #0bc;
+  fill: #0bc;
+}
+.u-color-teal5 {
+  color: #189;
+  fill: #189;
+}
+.u-color-teal6 {
+  color: #156;
+  fill: #156;
+}
+
+.u-color-red1 {
+  color: #fbeeee;
+  fill: #fbeeee;
+}
+.u-color-red2 {
+  color: #f4dfdf;
+  fill: #f4dfdf;
+}
+.u-color-red3 {
+  color: #efb9b9;
+  fill: #efb9b9;
+}
+.u-color-red4 {
+  color: #e00;
+  fill: #e00;
+}
+.u-color-red5 {
+  color: #c00;
+  fill: #c00;
+}
+.u-color-red6 {
+  color: #900;
+  fill: #900;
+}
+
+.u-color-white {
+  color: #fff;
+  fill: #fff;
+}
+
+.u-color-grey1 {
+  color: #f9f9f9;
+  fill: #f9f9f9;
+}
+.u-color-grey2 {
+  color: #f0f0f0;
+  fill: #f0f0f0;
+}
+.u-color-grey3 {
+  color: #ccc;
+  fill: #ccc;
+}
+.u-color-grey4 {
+  color: #b9b9b9;
+  fill: #b9b9b9;
+}
+.u-color-grey5 {
+  color: #aaa;
+  fill: #aaa;
+}
+.u-color-grey6 {
+  color: #999;
+  fill: #999;
+}
+.u-color-grey7 {
+  color: #555;
+  fill: #555;
+}
+.u-color-grey8 {
+  color: #333;
+  fill: #333;
+}
+
+.u-color-black {
+  color: #000;
+  fill: #000;
+}
+
+.u-color-yellow1 {
+  color: #ffffe5;
+  fill: #ffffe5;
+}
+.u-color-yellow2 {
+  color: #ffffb3;
+  fill: #ffffb3;
+}
+
+.u-color-green {
+  color: #44bb55;
+  fill: #44bb55;
+}

@@ -1,0 +1,76 @@
+{% extends 'layouts/layout.nunjucks' %}
+
+{% block content %}
+
+  <div id="documentation" class="documentation l-container l-row u-bgColor-white u-boxShadow-1">
+    {% markdown 'readme.md' %}
+  </div>
+
+  <div id="actions" class="actions l-container l-row u-bgColor-white u-boxShadow-1">
+    <div class="grid"><div class="col"><p>Drag and drop images onto page to add to optimize list, or use "Choose Files" button below.</p></div></div>
+    <div class="grid"><div class="col"><em>Settings Placeholder</em></div></div>
+    <div class="grid-noBottom-middle">
+      <div class="col-6_md-12">
+
+        <a class="button js-upload-files">
+          <span>Choose Files...</span>
+        </a>
+
+        <button type="submit" class="button u-bgColor-teal5 js-upload-start" disabled="disabled">
+          <span>Optimize All</span>
+        </button>
+
+        <button type="reset" class="button u-bgColor-red4 js-upload-clear" disabled="disabled">
+          <span>Remove All</span>
+        </button>
+
+      </div>
+      <div class="col-6_md-12">
+
+        <div id="total-progress" class="progress js-upload-total-progress">
+          <div class="progress-bar u-bgColor-teal4" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="previews" class="previews l-container l-row u-bgColor-white u-boxShadow-1">
+
+    <div id="preview-template" class="preview grid-noBottom-middle">
+
+      <div class="col-">
+        <div class="preview-thumbnail">
+          <img data-dz-thumbnail />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="preview-details">
+          <span class="name" data-dz-name></span>
+          (<span class="size" data-dz-size></span>)
+          <strong class="error text-danger" data-dz-errormessage></strong>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="preview-actions grid-noBottom-right">
+          <div class="col u-text-right">
+            <button type="submit" class="button u-bgColor-teal5 js-upload-start">
+              <span>Optimize</span>
+            </button>
+            <button type="reset" class="button u-bgColor-red4 js-upload-clear" data-dz-remove>
+              <span>Remove</span>
+            </button>
+            <a href="" class="button u-hidden js-download-file">
+              <span>Download Optimized Image</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
