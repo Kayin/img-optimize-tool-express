@@ -4,21 +4,23 @@ const express = require('express'),
 const router = express.Router();
 
 /* GET download buffer. */
-router.get('/', function(req, res){
+router.get('/:name', function(req, res){
 
-  let imagesBuffer = req.app.locals.IMG_BUFFER;
-  let imagesName   = req.app.locals.IMG_NAME;
-  let imagesType   = req.app.locals.IMG_TYPE;
+  res.send('This if file name?: ' + req.params.name);
 
-  let fileContents = Buffer.from(imagesBuffer, "base64");
+  // let imagesBuffer = req.app.locals.IMG_BUFFER;
+  // let imagesName   = req.app.locals.IMG_NAME;
+  // let imagesType   = req.app.locals.IMG_TYPE;
 
-  let readStream = new stream.PassThrough();
-  readStream.end(fileContents);
+  // let fileContents = Buffer.from(imagesBuffer, "base64");
 
-  res.set('Content-disposition', 'attachment; filename=' + imagesName);
-  res.set('Content-Type', imagesType);
+  // let readStream = new stream.PassThrough();
+  // readStream.end(fileContents);
 
-  readStream.pipe(res);
+  // res.set('Content-disposition', 'attachment; filename=' + imagesName);
+  // res.set('Content-Type', imagesType);
+
+  // readStream.pipe(res);
 
 });
 
