@@ -7,7 +7,7 @@ const express      = require('express'),
       nunjucks     = require('nunjucks'),
       markdown     = require('nunjucks-markdown'),
       marked       = require('marked'),
-      multer       = require('multer'),
+      // multer       = require('multer'),
       hljs         = require('highlight.js');
 
 const app = express();
@@ -65,6 +65,7 @@ if (app.get('env') === 'development') {
       error: err,
       title: 'error'
     });
+    next();
   });
 }
 
@@ -77,6 +78,7 @@ app.use(function(err, req, res, next) {
     error: {},
     title: 'error'
   });
+  next();
 });
 
 /// Uploader/Downloader buffer bucket

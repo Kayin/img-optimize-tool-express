@@ -1,6 +1,6 @@
 const express     = require('express'),
       fs          = require('fs'),
-      stream      = require('stream')
+      // stream      = require('stream'),
       imagemin    = require('imagemin'),
       imageminPng = require('imagemin-pngquant'),
       imageminJpg = require('imagemin-jpeg-recompress'),
@@ -40,11 +40,11 @@ router.post('/', upload.single('upl'), function(req, res){
 
     /* write optimized img to temp folder */
     fs.writeFile('tmp/' + imagesName, imagesData, (err) => {
-      // console.log('Write error: ' + err);
+      console.log('Write error: ' + err);
     });
 
   }).catch(err => {
-    // console.log('Promise error: ' + err);
+    console.error('Promise error: ' + err);
   });
 
   res.status(204).end();
